@@ -1,3 +1,7 @@
-Operating Systems – Mr. Sandy Joseph
-AL Concepts – Mrs. Tripti C
-Database Systems – Mrs. Jisha Mary Jose
+Machine Learning (ML) is taught by Dr. Sminu Izudheen
+Security In Computing (SIC) is taught by Mr. Sandy Joseph
+Language Processors (LP) is taught by Mrs. Dincy Paul
+Soft Computing (SC) is taught by Mrs. Jisha Mary Jose
+Fuzzy Sets (FS) is taught by Ms. Arya M V
+UHV is taught by Mrs. Neethu George
+AI Concepts (AI) is taught by Mrs. Tripti C

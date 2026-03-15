@@ -1,3 +1,5 @@
 Hackathon: April 5
 ACM Workshop: March 20
 AI Seminar: April 12
+Tech Fest: April 20
+Code Sprint: March 28

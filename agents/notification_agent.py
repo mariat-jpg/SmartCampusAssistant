@@ -1,16 +1,28 @@
-import json
+from agents.scheduler_agent import get_due_reminders, get_all_reminders
+from datetime import datetime
 
-REMINDER_FILE = "storage/reminders.json"
+def get_notifications():
+    reminders = get_due_reminders()
+    notifications = []
 
-def get_reminders():
+    for r in reminders:
+        days_left = r.get("days_left", 0)
+        if days_left < 0:
+            status = "overdue"
+        elif days_left == 0:
+            status = "today"
+        elif days_left <= 3:
+            status = "soon"
+        else:
+            status = "upcoming"
 
-    try:
-        with open(REMINDER_FILE, "r") as f:
-            reminders = json.load(f)
-    except:
-        reminders = []
+        notifications.append({
+            "text": r["text"],
+            "days_left": days_left,
+            "status": status,
+            "type": r.get("type", "general"),
+            "due": r.get("due"),
+            "id": r.get("id")
+        })
 
-    if not reminders:
-        return "No reminders available."
-
-    return "\n".join(reminders)
+    return notifications

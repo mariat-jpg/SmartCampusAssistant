@@ -1,7 +1,38 @@
-Monday
+Monday's Timetable is as follows: 
 8:30-9:35 LP
 9:35-10:40 Elective
 11-12 Placement
 1-2 ML
 2-3 AI
 3:15-4:15 SIC
+
+Tuesday's Timetable is as follows: 
+8:30-12 ML Lab
+1-2 SIC
+2-3 LP
+3:15-4:15 ML
+
+Wednesday's Timetable is as follows: 
+8:30-9:35 Elective
+9:35-10:40 SIC
+11-12 ML
+1-2 UHV
+2-3 AI
+3:15-4:15 LP
+
+Thursday's Timetable is as follows: 
+8:30-11 Mini Project
+11-12 LP
+1-4:15 LP Lab
+
+Friday's Timetable is as follows: 
+8:30-9:30 ML
+9:30-10:30 UHV
+10:40-11:35 AI
+11:35-12:30 Mentoring
+2-2:50 Elective
+2:50-3:40 SIC
+3:40-4:30 AI
+
+From Monday to Thursday, the breaks are from 10:40 to 11 and 3:00 to 3:15, and lunch break is from 12:00 to 1:00.
+On Friday, the break is from 10:30 to 10:40 and the lunch break is from 12:30 to 2:00.
