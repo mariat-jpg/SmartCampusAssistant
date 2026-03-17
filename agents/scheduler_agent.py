@@ -49,10 +49,43 @@ def add_reminder(text):
               "july":7,"august":8,"september":9,"october":10,"november":11,"december":12,
               "jan":1,"feb":2,"mar":3,"apr":4,"jun":6,"jul":7,"aug":8,"sep":9,"oct":10,"nov":11,"dec":12}
     
+    # Specific time today (e.g. "at 5 pm", "at 3:30 pm")
+    time_match = re.search(r'at (\d{1,2})(?::(\d{2}))?\s*(am|pm)', text_lower)
+    if time_match:
+        hour = int(time_match.group(1))
+        minute = int(time_match.group(2)) if time_match.group(2) else 0
+        period = time_match.group(3)
+        if period == "pm" and hour != 12:
+            hour += 12
+        elif period == "am" and hour == 12:
+            hour = 0
+        reminder["due"] = datetime.now().replace(hour=hour, minute=minute, second=0).isoformat()
     if "tonight" in text_lower or "today" in text_lower:
         reminder["due"] = datetime.now().replace(hour=23, minute=59).isoformat()
     elif "tomorrow" in text_lower:
-        reminder["due"] = (datetime.now() + timedelta(days=1)).isoformat()
+        time_match = re.search(r'at (\d{1,2})(?::(\d{2}))?\s*(am|pm)', text_lower)
+        if time_match:
+            hour = int(time_match.group(1))
+            minute = int(time_match.group(2)) if time_match.group(2) else 0
+            period = time_match.group(3)
+            if period == "pm" and hour != 12:
+                hour += 12
+            elif period == "am" and hour == 12:
+                hour = 0
+            tomorrow = datetime.now() + timedelta(days=1)
+            reminder["due"] = tomorrow.replace(hour=hour, minute=minute, second=0).isoformat()
+        else:
+            reminder["due"] = (datetime.now() + timedelta(days=1)).isoformat()
+    elif re.search(r'at (\d{1,2})(?::(\d{2}))?\s*(am|pm)', text_lower):
+        time_match = re.search(r'at (\d{1,2})(?::(\d{2}))?\s*(am|pm)', text_lower)
+        hour = int(time_match.group(1))
+        minute = int(time_match.group(2)) if time_match.group(2) else 0
+        period = time_match.group(3)
+        if period == "pm" and hour != 12:
+            hour += 12
+        elif period == "am" and hour == 12:
+            hour = 0
+        reminder["due"] = datetime.now().replace(hour=hour, minute=minute, second=0).isoformat()
     elif re.search(r'in (\d+) hour', text_lower):
         hours = int(re.search(r'in (\d+) hour', text_lower).group(1))
         reminder["due"] = (datetime.now() + timedelta(hours=hours)).isoformat()
@@ -65,17 +98,17 @@ def add_reminder(text):
     elif re.search(r'in (\d+) week', text_lower):
         weeks = int(re.search(r'in (\d+) week', text_lower).group(1))
         reminder["due"] = (datetime.now() + timedelta(weeks=weeks)).isoformat()
-    
-    pattern = r'(january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|oct|nov|dec)\s+(\d{1,2})'
-    match = re.search(pattern, text_lower)
-    if match:
-        month = months[match.group(1)]
-        day = int(match.group(2))
-        year = datetime.now().year
-        try:
-            reminder["due"] = datetime(year, month, day).isoformat()
-        except:
-            pass
+    else:
+        pattern = r'(january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|oct|nov|dec)\s+(\d{1,2})'
+        match = re.search(pattern, text_lower)
+        if match:
+            month = months[match.group(1)]
+            day = int(match.group(2))
+            year = datetime.now().year
+            try:
+                reminder["due"] = datetime(year, month, day).isoformat()
+            except:
+                pass
 
     reminders.append(reminder)
     save_reminders(reminders)
@@ -88,7 +121,7 @@ def get_due_reminders():
     for r in reminders:
         if r.get("due"):
             due_date = datetime.fromisoformat(r["due"])
-            days_left = (due_date - now).days
+            days_left = (due_date.date() - now.date()).days
             r["days_left"] = days_left
             due.append(r)
     return sorted(due, key=lambda x: x["days_left"])

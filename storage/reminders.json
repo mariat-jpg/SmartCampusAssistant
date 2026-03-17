@@ -6,29 +6,5 @@
     "due": "2026-03-16T21:44:52.716774",
     "recurring": null,
     "type": "deadline"
-  },
-  {
-    "id": 1773591310900,
-    "text": "remind me to submit lp assignment tonight",
-    "created": "2026-03-15T21:45:10.900867",
-    "due": "2026-03-15T23:59:10.900910",
-    "recurring": null,
-    "type": "deadline"
-  },
-  {
-    "id": 1773591333088,
-    "text": "remind me to finish ml ppt today",
-    "created": "2026-03-15T21:45:33.088416",
-    "due": "2026-03-15T23:59:33.088471",
-    "recurring": null,
-    "type": "general"
-  },
-  {
-    "id": 1773591382917,
-    "text": "Remind me about the ML assignment due April 10",
-    "created": "2026-03-15T21:46:22.917994",
-    "due": "2026-04-10T00:00:00",
-    "recurring": null,
-    "type": "deadline"
   }
 ]

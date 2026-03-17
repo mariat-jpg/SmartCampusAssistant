@@ -14,7 +14,7 @@ def format_docs(docs):
     return "\n".join(doc.page_content for doc in docs)
 
 def call_llm(context, question):
-    prompt = f"""You are a helpful campus assistant. Answer the question using only the context below. Be concise and direct. Return ONLY the answer, nothing else.
+    prompt = f"""You are a helpful campus assistant. Answer the question using only the context below. Be concise. If the answer is in the context, state it directly. Do not say there is no information if the context contains relevant details. Return ONLY the answer, nothing else.
 
 Context: {context}
 

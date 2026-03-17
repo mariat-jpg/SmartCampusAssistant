@@ -1,5 +1,5 @@
-Hackathon: April 5
-ACM Workshop: March 20
-AI Seminar: April 12
-Tech Fest: April 20
-Code Sprint: March 28
+The next Hackathon is on April 5
+ACM Workshop will be held on March 20
+AI Seminar will be taken on April 12
+Tech Fest is on April 20
+Code Sprint is on March 28
