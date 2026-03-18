@@ -1,2 +1,2 @@
 # SmartCampusAssistant
-This project focuses on developing an intelligent campus assistant that integrates agentic AI, Retrieval- Augmented Generation, and LangChain to handle student queries, manage scheduling tasks, and deliver timely notifications.
+This project focuses on developing an intelligent campus assistant that integrates agentic AI, Retrieval-Augmented Generation, and LangChain to handle student queries, manage scheduling tasks, and deliver timely notifications. The system employs a multiagent architecture to provide context-aware, automated support, culminating in a fully functional end-to-end deployment and demonstration.
